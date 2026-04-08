@@ -96,6 +96,8 @@ export function MobileNav() {
                 src={profileData.avatarUrl} 
                 alt={profileData.name}
                 fill
+                priority={true}
+                sizes="32px"
                 className="object-cover"
               />
             ) : (

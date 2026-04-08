@@ -50,6 +50,7 @@ function ToolsMarquee() {
           alt={tech.name} 
           width={20}
           height={20}
+          sizes="20px"
           className="object-contain"
           unoptimized={tech.icon.endsWith('.svg')}
         />

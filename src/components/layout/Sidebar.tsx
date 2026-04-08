@@ -15,6 +15,7 @@ import {
   BadgeCheck,
 } from "lucide-react";
 import { ThemeToggle } from "../ui/ThemeToggle";
+import NextImage from "next/image";
 import { profile as localProfile } from "@/data/profile";
 import { useEffect, useState } from "react";
 import { getDocument } from "@/lib/firebase/firestore";
@@ -98,10 +99,16 @@ export function Sidebar() {
         {/* Profile Section */}
         <motion.div className="px-5 pt-10 pb-6 flex flex-col items-center text-center" variants={itemVariants}>
           <div className="mb-5 relative">
-            <div className="w-[110px] h-[110px] rounded-full bg-linear-to-br from-accent/30 to-purple-500/30 flex items-center justify-center text-white font-bold text-4xl font-heading border-2 border-border overflow-hidden shadow-xl shadow-accent/5">
+            <div className="w-[110px] h-[110px] rounded-full bg-linear-to-br from-accent/30 to-purple-500/30 flex items-center justify-center text-white font-bold text-4xl font-heading border-2 border-border overflow-hidden shadow-xl shadow-accent/5 relative">
               {profileData.avatarUrl ? (
-                /* eslint-disable-next-line @next/next/no-img-element */
-                <img src={profileData.avatarUrl} alt={profileData.name} className="w-full h-full object-cover" />
+                <NextImage 
+                  src={profileData.avatarUrl} 
+                  alt={profileData.name} 
+                  fill 
+                  priority={true}
+                  sizes="110px"
+                  className="object-cover" 
+                />
               ) : (
                 profileData.name.charAt(0)
               )}

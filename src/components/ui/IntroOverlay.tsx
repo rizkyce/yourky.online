@@ -31,76 +31,82 @@ export function IntroOverlay({ onComplete }: { onComplete: () => void }) {
       // Phase 1: Greeting text fades in
       tl.fromTo(
         ".intro-greeting",
-        { opacity: 0, y: 40, scale: 0.9 },
-        { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: "power3.out" }
+        { opacity: 0, y: 30, scale: 0.95 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "power3.out" }
       );
 
-      // Phase 2: Hold greeting
-      tl.to(".intro-greeting", { duration: 0.6 });
+      // Phase 2: Hold greeting (shortened)
+      tl.to(".intro-greeting", { duration: 0.3 });
 
-      // Phase 3: Greeting fades out & up
+      // Phase 3: Greeting fades out
       tl.to(".intro-greeting", {
         opacity: 0,
-        y: -30,
-        scale: 0.95,
-        duration: 0.5,
+        y: -20,
+        duration: 0.4,
         ease: "power2.in",
       });
 
-      // Phase 4: Name reveal — letter by letter
+      // Phase 4: Name reveal
       tl.set(".intro-name", { visibility: "visible" });
       tl.fromTo(
         ".intro-name-char",
-        { opacity: 0, y: 60, rotateX: -90 },
+        { opacity: 0, y: 40, rotateX: -60 },
         {
           opacity: 1,
           y: 0,
           rotateX: 0,
-          duration: 0.6,
-          stagger: 0.04,
-          ease: "back.out(1.7)",
+          duration: 0.4,
+          stagger: 0.03,
+          ease: "back.out(1.5)",
         }
       );
 
-      // Phase 5: Title slides in
+      // Phase 5: Title 
       tl.fromTo(
         ".intro-title",
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" },
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" },
         "-=0.2"
       );
 
-      // Phase 6: Decorative line expands
+      // Phase 6: Decorative line
       tl.fromTo(
         ".intro-line",
         { scaleX: 0 },
-        { scaleX: 1, duration: 0.8, ease: "power3.inOut" },
-        "-=0.3"
+        { scaleX: 1, duration: 0.5, ease: "power3.inOut" },
+        "-=0.2"
       );
 
-      // Phase 7: Tagline fades in
+      // Phase 7: Tagline
       tl.fromTo(
         ".intro-tagline",
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" },
+        { opacity: 0, y: 15 },
+        { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" },
         "-=0.3"
       );
 
-      // Phase 8: Hold for impact
-      tl.to({}, { duration: 0.8 });
+      // Phase 8: Hold (shortened)
+      tl.to({}, { duration: 0.4 });
 
-      // Phase 9: Everything scales up and fades out (Apple zoom-through effect)
-      tl.to(".intro-content", {
-        scale: 1.5,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power3.in",
-      });
-
-      // Phase 10: Overlay itself slides away
+      // NEW: Fade background earlier to allow browser to 'see' content behind for LCP
       tl.to(overlayRef.current, {
+        backgroundColor: "rgba(10, 10, 11, 0)",
+        duration: 0.8,
+        ease: "power2.inOut"
+      }, "+=0.5"); // Start fading shortly after name reveal starts
+
+      // Phase 9: Scale up and fade out
+      tl.to(".intro-content", {
+        scale: 1.1,
         opacity: 0,
         duration: 0.4,
+        ease: "power3.in",
+      }, "-=0.4");
+
+      // Phase 10: Overlay slide / remove
+      tl.to(overlayRef.current, {
+        opacity: 0,
+        duration: 0.3,
         ease: "power2.inOut",
       });
     }, overlayRef);
