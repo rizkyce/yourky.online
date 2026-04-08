@@ -201,7 +201,7 @@ export function IntroOverlay({ onComplete }: { onComplete: () => void }) {
           className="intro-title text-white/50 text-sm sm:text-base md:text-lg tracking-[0.15em] uppercase mb-3"
           style={{ opacity: 0 }}
         >
-          Computer Engineer & IoT Developer
+          Computer Engineer, VSAT Operator & IoT Developer
         </p>
 
         {/* Tagline */}

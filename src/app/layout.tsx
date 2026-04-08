@@ -28,12 +28,13 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Nur Ridho Rizki — Computer Engineer & IoT Developer",
+    default: "Nur Ridho Rizki - Computer Engineer",
     template: "%s | Nur Ridho Rizki",
   },
   description:
     "Personal portfolio of Nur Ridho Rizki — a Computer Engineering graduate specializing in IoT systems, cloud infrastructure, and deep learning applications.",
   keywords: [
+    "vsat operator",
     "portfolio",
     "iot developer",
     "computer engineer",
@@ -44,10 +45,15 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Nur Ridho Rizki" }],
   openGraph: {
-    title: "Nur Ridho Rizki — Computer Engineer & IoT Developer",
+    title: "Nur Ridho Rizki",
     description:
       "Personal portfolio of Nur Ridho Rizki — specializing in IoT, cloud infrastructure, and AI-powered solutions.",
     type: "website",
+  },
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
   },
 };
 
