@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     template: "%s | Nur Ridho Rizki",
   },
   description:
-    "Personal portfolio of Nur Ridho Rizki — a Computer Engineering graduate specializing in IoT systems, cloud infrastructure, and deep learning applications.",
+    "Personal portfolio of Nur Ridho Rizki — a Computer Engineering graduate specializing in IoT systems, cloud infrastructure, VSAT network, and deep learning applications.",
   keywords: [
     "vsat operator",
     "portfolio",
