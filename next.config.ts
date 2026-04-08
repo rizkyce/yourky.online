@@ -23,6 +23,9 @@ const nextConfig: NextConfig = {
       }
     ],
   },
+  // Fix for "Failed to find Server Action" on deployments like Coolify
+  // This helps Next.js handle version skew by detecting build mismatches
+  deploymentId: process.env.COOLIFY_COMMIT_HASH || "production-v1",
 };
 
 export default nextConfig;
