@@ -6,6 +6,8 @@ import { Sidebar } from "@/components/layout/Sidebar";
 import { MobileNav } from "@/components/layout/MobileNav";
 import { IntroWrapper } from "@/components/layout/IntroWrapper";
 import { AnalyticsTracker } from "@/components/analytics/AnalyticsTracker";
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import "./globals.css";
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -89,6 +91,8 @@ export default function RootLayout({
                 <main className="flex-1 lg:ml-[280px] w-full min-h-screen overflow-x-hidden">
                   <div className="w-full max-w-5xl mx-auto px-4 sm:px-8 lg:px-12 py-8 pt-20 lg:pt-8 pb-24 lg:pb-8 box-border">
                     {children}
+                    <Analytics />
+                    <SpeedInsights />
                   </div>
                 </main>
               </div>
